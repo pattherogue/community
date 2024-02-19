@@ -1,21 +1,14 @@
-import matplotlib.pyplot as plt
-import plotly.express as px
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-def visualize_data():
-    # Example: Read data from CSV file
-    df = pd.read_csv('data/collected_data.csv')
+# Load the dataset into a pandas DataFrame
+file_path = "/path/to/your/dataset/CRE2022.CRE-Data.csv"
+df = pd.read_csv(file_path)
 
-    # Example: Create a bar plot using matplotlib
-    plt.bar(df['Category'], df['Value'])
-    plt.xlabel('Category')
-    plt.ylabel('Value')
-    plt.title('Data Visualization')
-    plt.show()
-
-    # Example: Create an interactive scatter plot using Plotly
-    fig = px.scatter(df, x='X', y='Y', color='Category', title='Interactive Plot')
-    fig.show()
-
-if __name__ == '__main__':
-    visualize_data()
+# Visualize the rate of individuals with zero components of social vulnerability
+sns.histplot(df['Rate of individuals with zero components of social vulnerability'], kde=True)
+plt.title("Distribution of Rate of Individuals with Zero Components of Social Vulnerability")
+plt.xlabel("Rate")
+plt.ylabel("Frequency")
+plt.show()

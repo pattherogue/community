@@ -1,10 +1,19 @@
 import pandas as pd
 
-# Define the full file path
-file_path = "/Users/paologomez/Downloads/CRE2022.CRE_2024-02-19T170945"
+def process_data(data):
+    """
+    Process the dataset for further analysis.
+    
+    Args:
+        data (pandas.DataFrame): The dataset to process.
+    
+    Returns:
+        pandas.DataFrame: The processed dataset.
+    """
+    # Perform data processing steps here
+    # Example: Drop missing values
+    processed_data = data.dropna()
+    
+    return processed_data
 
-# Load the dataset into a pandas DataFrame
-df = pd.read_csv(file_path)
 
-# Display the first few rows of the DataFrame
-print(df.head())

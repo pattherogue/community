@@ -1,14 +1,22 @@
-import requests
 import pandas as pd
 
-def collect_data():
-    # Example: Collect data from an API
-    response = requests.get('https://api.example.com/data')
-    data = response.json()
+def load_data(file_path):
+    """
+    Load the dataset into a pandas DataFrame.
+    
+    Args:
+        file_path (str): The file path to the CSV dataset.
+    
+    Returns:
+        pandas.DataFrame: The loaded dataset.
+    """
+    # Load the dataset into a DataFrame
+    df = pd.read_csv(file_path)
+    
+    return df
 
-    # Example: Store data in a CSV file
-    df = pd.DataFrame(data)
-    df.to_csv('data/collected_data.csv', index=False)
-
-if __name__ == '__main__':
-    collect_data()
+# Example usage
+if __name__ == "__main__":
+    file_path = "data/CRE2022.CRE-Data.csv"
+    data = load_data(file_path)
+    print(data.head())

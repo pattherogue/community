@@ -1,13 +1,22 @@
 import pandas as pd
 
-def analyze_data():
-    # Example: Read data from CSV file
-    df = pd.read_csv('data/collected_data.csv')
+def explore_data(data):
+    """
+    Perform exploratory data analysis (EDA) on the dataset.
+    
+    Args:
+        data (pandas.DataFrame): The dataset to analyze.
+    """
+    # Perform exploratory data analysis here
+    # Example: Display summary statistics
+    print(data.describe())
+    
+    # Example: Visualize distributions
+    # import matplotlib.pyplot as plt
+    # data.hist(figsize=(10, 10))
+    # plt.show()
 
-    # Example: Perform data analysis
-    summary_statistics = df.describe()
-
-    return summary_statistics  # Return summary statistics as a pandas DataFrame
-
-if __name__ == '__main__':
-    analyze_data()
+# Example usage
+if __name__ == "__main__":
+    # Assuming 'data' is already loaded from data_collection.py
+    explore_data(data)
