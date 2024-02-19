@@ -1,14 +1,26 @@
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
 
-# Load the dataset into a pandas DataFrame
-file_path = "/path/to/your/dataset/CRE2022.CRE-Data.csv"
-df = pd.read_csv(file_path)
+def visualize_data(data):
+    """
+    Visualize data from the processed dataset.
+    
+    Args:
+        data (pandas.DataFrame): The processed dataset.
+    """
+    # Choose the column for visualization (e.g., 'Rate of individuals with zero components of social vulnerability')
+    column_to_visualize = 'Rate of individuals with zero components of social vulnerability'
+    
+    # Plot the distribution of the selected column
+    plt.figure(figsize=(8, 6))
+    data[column_to_visualize].hist(bins=20, color='skyblue', edgecolor='black')
+    plt.title('Distribution of Social Vulnerability Rates')
+    plt.xlabel('Social Vulnerability Rate')
+    plt.ylabel('Frequency')
+    plt.grid(False)
+    plt.show()
 
-# Visualize the rate of individuals with zero components of social vulnerability
-sns.histplot(df['Rate of individuals with zero components of social vulnerability'], kde=True)
-plt.title("Distribution of Rate of Individuals with Zero Components of Social Vulnerability")
-plt.xlabel("Rate")
-plt.ylabel("Frequency")
-plt.show()
+if __name__ == '__main__':
+    # Load the processed dataset (assuming 'processed_data' is already loaded)
+    processed_data = pd.read_csv('data/CRE2022.CRE-Data.csv')  # Adjust the file path as needed
+    visualize_data(processed_data)

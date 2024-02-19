@@ -1,4 +1,7 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template
+import data_collection
+import data_analysis
+import data_visualization
 
 app = Flask(__name__)
 
@@ -7,39 +10,26 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# Define route for economic impact section
-@app.route('/economic')
-def economic_impact():
-    return render_template('economic_impact.html')
-
-# Define route for social impact section
-@app.route('/social')
-def social_impact():
-    return render_template('social_impact.html')
-
-# Define route for environmental impact section
-@app.route('/environmental')
-def environmental_impact():
-    return render_template('environmental_impact.html')
-
+# Route for data collection
 @app.route('/collect-data')
 def collect_data():
-    # Implement data collection logic here
-    return 'Data collected successfully'  # Return a message to indicate successful data collection
+    file_path = "data/CRE2022.CRE-Data.csv"
+    df = data_collection.load_data(file_path)
+    return 'Data collected successfully'
 
+# Route for data analysis
 @app.route('/analyze-data')
 def analyze_data():
-    # Implement data analysis logic here
-    return 'Data analyzed successfully'  # Return a message to indicate successful data analysis
+    df = data_collection.load_data("data/CRE2022.CRE-Data.csv")
+    data_analysis.analyze_data(df)
+    return 'Data analyzed successfully'
 
+# Route for data visualization
 @app.route('/visualize-data')
 def visualize_data():
-    # Implement data visualization logic here
-    return 'Data visualized successfully'  # Return a message to indicate successful data visualization
-
-
-
-
+    df = data_collection.load_data("data/CRE2022.CRE-Data.csv")
+    data_visualization.visualize_data(df)
+    return 'Data visualized successfully'
 
 if __name__ == '__main__':
     app.run(debug=True)
