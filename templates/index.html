@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Impact Dashboard</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Welcome to the Community Impact Dashboard</h1>
+        <h1>Community Impact Dashboard</h1>
     </header>
     
     <nav>
-        <a href="#">Economic Impact</a> |
-        <a href="#">Social Impact</a> |
-        <a href="#">Environmental Impact</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Economic Impact</a></li>
+            <li><a href="#">Social Impact</a></li>
+            <li><a href="#">Environmental Impact</a></li>
+        </ul>
     </nav>
     
     <main>
-        <h2>Dashboard Overview</h2>
-        <p>This dashboard provides an overview of community impact metrics.</p>
-        <p>Choose an impact domain from the navigation menu to view specific data.</p>
+        <section class="overview">
+            <h2>Dashboard Overview</h2>
+            <p>Welcome to the Community Impact Dashboard. This dashboard provides an overview of project impact metrics across economic, social, and environmental domains.</p>
+        </section>
+        
+        <section class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Interactive Visualizations</li>
+                <li>Filtering and Sorting Options</li>
+                <li>Dynamic Updates</li>
+                <li>Feedback Mechanism</li>
+            </ul>
+        </section>
     </main>
     
     <footer>
