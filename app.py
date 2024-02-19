@@ -22,6 +22,24 @@ def social_impact():
 def environmental_impact():
     return render_template('environmental_impact.html')
 
+@app.route('/collect-data')
+def collect_data():
+    # Implement data collection logic here
+    return 'Data collected successfully'  # Return a message to indicate successful data collection
+
+@app.route('/analyze-data')
+def analyze_data():
+    # Implement data analysis logic here
+    return 'Data analyzed successfully'  # Return a message to indicate successful data analysis
+
+@app.route('/visualize-data')
+def visualize_data():
+    # Implement data visualization logic here
+    return 'Data visualized successfully'  # Return a message to indicate successful data visualization
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
